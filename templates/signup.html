@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Sign Up – Easy Biz Deal{% endblock %}
+
+{% block head_extra %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+  <script src="https://kit.fontawesome.com/a2d04d4a18.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+<div class="signup-container">
+  <div class="signup-card">
+    <h2>Create Your Account</h2>
+
+    {% if request.endpoint == 'signup' %}
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-messages">
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+    {% endif %}
+
+    <div class="social-login">
+      <a href="{{ url_for('google_login') }}" class="social-btn google-btn">
+        <i class="fab fa-google"></i> Sign up with Google
+      </a>
+    </div>
+
+    <div class="divider"><span>OR</span></div>
+
+    <form action="{{ url_for('signup') }}" method="POST" class="signup-form">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" name="first_name" placeholder="John" required>
+      </div>
+
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" name="last_name" placeholder="Doe" required>
+      </div>
+
+      <div class="form-group">
+        <label>Country</label>
+        <select name="country" required>
+          <option value="">Select Country</option>
+          <option>Bangladesh</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+          <option>Australia</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-group password-field">
+        <label>Password</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required>
+        <i class="fa fa-eye" id="togglePassword"></i>
+      </div>
+
+      <div class="form-group terms-check">
+        <label class="checkbox-label">
+          <input type="checkbox" name="agree_terms" required>
+          I agree to the <a href="{{ url_for('terms') }}" target="_blank">Terms & Conditions</a>
+        </label>
+      </div>
+
+      <button type="submit" class="signup-btn">Create Account</button>
+    </form>
+
+    <p class="login-link">Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+  </div>
+</div>
+
+<script>
+  const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#password');
+  togglePassword.addEventListener('click', () => {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    togglePassword.classList.toggle('fa-eye-slash');
+  });
+</script>
+{% endblock %}

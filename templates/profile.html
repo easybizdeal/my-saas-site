@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}My Profile – Easy Biz Deal{% endblock %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+  <form class="profile-form" method="POST" action="/profile">
+    <div class="form-grid">
+      <input type="text" name="first_name" value="{{ current_user.first_name }}" placeholder="First Name" required>
+      <input type="text" name="last_name" value="{{ current_user.last_name }}" placeholder="Last Name" required>
+      <input type="text" name="phone" value="{{ current_user.phone or '' }}" placeholder="Phone Number">
+      <select name="country" required>
+        <option value="">Select Country</option>
+        <option value="{{ current_user.country }}" selected>{{ current_user.country }}</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+        <option value="Australia">Australia</option>
+        <option value="Bangladesh">Bangladesh</option>
+      </select>
+      <input type="text" name="state" value="{{ current_user.state or '' }}" placeholder="State">
+      <input type="text" name="city" value="{{ current_user.city or '' }}" placeholder="City">
+      <input type="text" name="company" value="{{ current_user.company or '' }}" placeholder="Company / Organization">
+      <input type="text" name="job_title" value="{{ current_user.job_title or '' }}" placeholder="Job Title">
+    </div>
+
+    <textarea name="bio" rows="4" placeholder="Short Bio">{{ current_user.bio or '' }}</textarea>
+
+    <div class="profile-actions">
+      <button type="submit" class="save-btn">Save Changes</button>
+      <button type="button" onclick="togglePopup('password-popup')">Change Password</button>
+      <button type="button" onclick="togglePopup('email-popup')">Change Email</button>
+    </div>
+  </form>
+</div>
+
+<!-- Password Popup -->
+<div class="popup" id="password-popup">
+  <div class="popup-content">
+    <h3>Change Password</h3>
+    <form method="POST" action="/change-password">
+      <input type="password" name="current_password" placeholder="Current Password" required>
+      <input type="password" name="new_password" placeholder="New Password" required>
+      <div class="popup-buttons">
+        <button type="submit">Update</button>
+        <button type="button" onclick="togglePopup('password-popup')">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Email Popup -->
+<div class="popup" id="email-popup">
+  <div class="popup-content">
+    <h3>Change Email</h3>
+    <form method="POST" action="/change-email">
+      <input type="email" name="current_email" placeholder="Current Email" required>
+      <input type="password" name="password" placeholder="Current Password" required>
+      <input type="email" name="new_email" placeholder="New Email Address" required>
+      <div class="popup-buttons">
+        <button type="submit">Update</button>
+        <button type="button" onclick="togglePopup('email-popup')">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function togglePopup(id) {
+    document.getElementById(id).classList.toggle('show');
+  }
+</script>
+{% endblock %}

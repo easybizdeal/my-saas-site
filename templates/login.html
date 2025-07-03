@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Login – Easy Biz Deal{% endblock %}
+{% block body_class %}auth-wrapper{% endblock %}
+
+{% block head_extra %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="form-page-wrapper">
+  <div class="form-wrapper">
+    <h2>Login to Easy Biz Deal</h2>
+
+    <div class="social-login">
+      <a href="{{ url_for('google_login') }}" class="social-btn google-btn">👤 Continue with Google</a>
+   </div>
+
+    <div class="divider"><span>OR</span></div>
+
+    <form method="POST">
+      <input type="email" name="email" placeholder="Email address" required>
+      <div class="password-field">
+        <input type="password" name="password" id="login-password" placeholder="Password" required>
+        <span class="toggle-password" onclick="togglePassword('login-password', this)">👁️</span>
+      </div>
+      <div class="forgot-password">
+        <a href="{{ url_for('forgot_password') }}">Forgot Password?</a>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="text-center">
+      New here? <a href="{{ url_for('signup') }}">Create an account</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function togglePassword(fieldId, el) {
+    const input = document.getElementById(fieldId);
+    const isPassword = input.type === "password";
+    input.type = isPassword ? "text" : "password";
+    el.textContent = isPassword ? "🙈" : "👁️";
+  }
+</script>
+{% endblock %}

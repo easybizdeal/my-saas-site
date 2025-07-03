@@ -1,0 +1,88 @@
+.tool-hero-section {
+  background: linear-gradient(to right, #10b981, #3b82f6);
+  padding: 60px 0;
+  color: white;
+  text-align: center;
+}
+
+.tool-hero-section h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.tool-hero-section p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+.tool-packages {
+  padding: 60px 20px;
+}
+
+.tool-packages h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #111827;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.package-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-4px);
+}
+
+.package-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.package-card p {
+  font-size: 14px;
+  color: #4b5563;
+  margin: 5px 0;
+}
+
+.package-card .buy-btn {
+  margin-top: 20px;
+  padding: 12px 28px;
+  font-size: 15px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.package-card .buy-btn:hover {
+  opacity: 0.9;
+}
+
+.package-card .buy-btn.green {
+  background: #10b981;
+  color: white;
+}
+
+.package-card .buy-btn.blue {
+  background: #3b82f6;
+  color: white;
+}
+
+.package-card .buy-btn.dark {
+  background: #111827;
+  color: white;
+}

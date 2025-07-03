@@ -1,0 +1,104 @@
+/* create_campaign.css */
+
+.create-campaign-container {
+  background: #f9fbfd;
+  padding: 40px 20px;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.campaign-header h1 {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.campaign-header p {
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+.campaign-form {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+}
+
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333333;
+}
+
+.form-control {
+  font-size: 1rem;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #5e9eff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(94, 158, 255, 0.2);
+}
+
+.form-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn-success {
+  background-color: #2fbd74;
+  border-color: #2fbd74;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #28a765;
+  border-color: #28a765;
+}
+
+.btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+  font-weight: 500;
+  padding: 4px 12px;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.tag-buttons span {
+  font-size: 0.95rem;
+  color: #555;
+  margin-right: 10px;
+}
+
+@media (max-width: 576px) {
+  .campaign-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .campaign-form {
+    padding: 20px;
+  }
+
+  .form-control,
+  textarea.form-control {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Campaign Center | Easy Biz Deal{% endblock %}
+
+{% block css_file %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/campaign_home.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="campaign-section">
+  <div class="campaign-heading">
+    <h1>🎯 Start a New Campaign</h1>
+    <p>Pick a method to reach your audience. Manage everything in one place.</p>
+  </div>
+
+  <div class="campaign-buttons">
+    <a href="/campaigns/linkedin" class="campaign-button linkedin-btn">
+      🔗 <span>LinkedIn Campaign</span>
+    </a>
+    <a href="/campaigns/email" class="campaign-button email-btn">
+      📧 <span>Email Campaign</span>
+    </a>
+  </div>
+</section>
+{% endblock %}

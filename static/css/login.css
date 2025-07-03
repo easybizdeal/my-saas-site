@@ -1,0 +1,169 @@
+/* login.css – Premium, Modern Login Page */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f8fafc;
+}
+
+.form-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 16px;
+  background: #f8fafc;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 36px 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.form-wrapper h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 28px;
+}
+
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.social-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #1e293b;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.social-btn:hover {
+  background: #f1f5f9;
+}
+
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 24px 0;
+}
+
+.divider span {
+  background: #fff;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #64748b;
+  position: relative;
+  z-index: 1;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: #e2e8f0;
+  z-index: 0;
+}
+
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f9fafb;
+  margin-bottom: 16px;
+  color: #0f172a;
+  outline: none;
+  transition: border 0.2s;
+}
+
+form input:focus {
+  border-color: #3b82f6;
+}
+
+.password-field {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 14px;
+  top: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #94a3b8;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: 16px;
+}
+
+.forgot-password a {
+  color: #0ea5e9;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background: #0ea5e9;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background: #0284c7;
+}
+
+.text-center {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.text-center a {
+  color: #0ea5e9;
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .form-wrapper {
+    padding: 28px 20px;
+    border-radius: 12px;
+  }
+
+  .form-wrapper h2 {
+    font-size: 20px;
+  }
+
+  button[type="submit"] {
+    padding: 10px;
+    font-size: 15px;
+  }
+}

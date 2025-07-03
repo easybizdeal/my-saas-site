@@ -1,0 +1,122 @@
+/* === FIXED HEADER === */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #cce9ec;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.3s ease; /* Smooth background hover */
+}
+
+.site-header:hover {
+  background-color: #fff0f5; /* Light pinkish hover effect */
+}
+
+/* === HEADER CONTAINER === */
+.site-header .container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  flex-wrap: wrap;
+}
+
+/* === LOGO === */
+.logo img {
+  height: 35px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%; /* Make logo round */
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/* === NAVIGATION === */
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-menu a {
+  color: #111827;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-menu a:hover {
+  color: #10b981;
+}
+
+.login-btn {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.signup-btn {
+  background-color: #10b981;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.dashboard-btn {
+  font-weight: 600;
+  color: #3b82f6;
+}
+
+.logout-btn {
+  color: #ef4444;
+  font-weight: 500;
+}
+
+/* === MOBILE MENU TOGGLE === */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background: #ffffff;
+    position: absolute;
+    top: 72px;
+    right: 24px;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* === BODY SPACING UNDER FIXED HEADER === */
+body {
+  padding-top: 80px; /* Adjust based on header height */
+}

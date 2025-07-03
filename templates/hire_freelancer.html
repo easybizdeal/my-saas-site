@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% block title %}Hire a Freelancer - Easy Biz Deal{% endblock %}
+
+{% block content %}
+<style>
+  body {
+    background: linear-gradient(to right, #2563eb, #1e3a8a);
+  }
+  .form-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 30px 40px;
+    max-width: 800px;
+    margin: 60px auto;
+  }
+  .form-control, .form-select {
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 20px;
+  }
+  .btn {
+    border-radius: 12px;
+    padding: 12px 25px;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .btn-next { background-color: #2563eb; color: white; }
+  .btn-submit { background-color: #10b981; color: white; }
+</style>
+
+<div class="form-card">
+  <h2 class="text-center mb-4">Hire a Freelancer</h2>
+
+  <!-- Step 1 -->
+  <form id="step1" onsubmit="goToStep2(event)">
+    <div class="row">
+      <div class="col-md-6">
+        <label>Country</label>
+        <select name="country" class="form-select" required>
+          <option value="">Select Country</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+          <option>Australia</option>
+          <option>Germany</option>
+          <option>France</option>
+          <option>Italy</option>
+          <option>Spain</option>
+          <option>Bangladesh</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label>Full Name</label>
+        <input type="text" name="name" class="form-control" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label>Email</label>
+        <input type="email" name="email" id="email" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label>Which Professional You're Looking For?</label>
+        <select name="role" class="form-select" required>
+          <option value="">Select</option>
+          <option>Web Developer</option>
+          <option>Designer</option>
+          <option>Digital Marketer</option>
+          <option>Hourly Virtual Assistant</option>
+          <option>I've Custom Requirements</option>
+        </select>
+      </div>
+    </div>
+
+    <label>Project Title</label>
+    <input type="text" name="title" class="form-control" required>
+
+    <button type="submit" class="btn btn-next w-100">Next</button>
+  </form>
+
+  <!-- Step 2 -->
+  <form id="step2" method="POST" action="/hire" enctype="multipart/form-data" style="display: none;">
+    <label>Project Requirements</label>
+    <textarea name="description" class="form-control" rows="5" required></textarea>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label>Estimate Timeframe</label>
+        <select name="timeframe" class="form-select" required>
+          <option value="">Select</option>
+          <option>1 to 7 Days</option>
+          <option>8 to 15 Days</option>
+          <option>16 to More than 1 Month</option>
+          <option>Custom Timeframe</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label>Upload File</label>
+        <input type="file" name="file" class="form-control">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label>Do you have an account on Easy Biz Deal?</label>
+        <select name="has_account" class="form-select" required>
+          <option value="">Select</option>
+          <option>Yes</option>
+          <option>No, I'm new here</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label>How would you like to discuss your project?</label>
+        <select name="communication" class="form-select" id="communication" required>
+          <option value="">Select</option>
+          <option>Email</option>
+          <option>WhatsApp</option>
+          <option>Virtual Meeting</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-submit w-100">Submit</button>
+  </form>
+</div>
+
+<script>
+  function goToStep2(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      alert('Please enter your email.');
+      return;
+    }
+    if (!emailPattern.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    // Copy data from Step 1 to Step 2 form
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const inputs = step1.querySelectorAll('input, select');
+
+    for (let input of inputs) {
+      if (input.name && input.value) {
+        const hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = input.name;
+        hiddenInput.value = input.value;
+        step2.appendChild(hiddenInput);
+      }
+    }
+
+    step1.style.display = 'none';
+    step2.style.display = 'block';
+  }
+</script>
+{% endblock %}

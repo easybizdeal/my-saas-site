@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Hire a Freelancer · Easy Biz Deal{% endblock %}
+
+{# ---------------------------------------------------- #}
+{#  EXTRA STYLES (token‑driven, no inline CSS)          #}
+{# ---------------------------------------------------- #}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/hire-form.css' %}">
+{% endblock %}
+
+{# ---------------------------------------------------- #}
+{#  PAGE CONTENT                                        #}
+{# ---------------------------------------------------- #}
+{% block content %}
+<section class="hire" id="hire">
+  <div class="hire__container">
+    <h1 class="hire__title">Hire a Freelancer</h1>
+
+    <form id="hireForm" class="hire-form" method="POST" action="{% url 'hire' %}" enctype="multipart/form-data" novalidate>
+      {% csrf_token %}
+
+      {# –– STEP 1 –– #}
+      <fieldset class="step is-active" data-step="1">
+        <legend class="visually-hidden">Project basics</legend>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="country">Country <span aria-hidden="true">*</span></label>
+            <select id="country" name="country" required>
+              <option value="" selected disabled>Select country</option>
+              <option>United States</option>
+              <option>United Kingdom</option>
+              <option>Australia</option>
+              <option>Germany</option>
+              <option>France</option>
+              <option>Italy</option>
+              <option>Spain</option>
+              <option>Bangladesh</option>
+            </select>
+            <p class="error-msg" aria-live="polite"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="name">Full name <span aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" required />
+            <p class="error-msg" aria-live="polite"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" required />
+            <p class="error-msg" aria-live="polite"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="role">Which professional are you looking for? <span aria-hidden="true">*</span></label>
+            <select id="role" name="role" required>
+              <option value="" selected disabled>Select role</option>
+              <option>Web Developer</option>
+              <option>Designer</option>
+              <option>Digital Marketer</option>
+              <option>Virtual Assistant</option>
+              <option>Custom requirements</option>
+            </select>
+            <p class="error-msg" aria-live="polite"></p>
+          </div>
+
+          <div class="form-field form-field--full">
+            <label for="title">Project title <span aria-hidden="true">*</span></label>
+            <input id="title" name="title" type="text" required />
+            <p class="error-msg" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn--primary form-next" data-goto="2">Next</button>
+      </fieldset>
+
+      {# –– STEP 2 –– #}
+      <fieldset class="step" data-step="2">
+        <legend class="visually-hidden">Project details</legend>
+
+        <div class="form-grid">
+          <div class="form-field form-field--full">
+            <label for="description">Project requirements <span aria-hidden="true">*</span></label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+            <p class="error-msg" aria-live="polite"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="timeframe">Estimated timeframe <span aria-hidden="true">*</span></label>
+            <select id="timeframe" name="timeframe" required>
+              <option value="" selected disabled>Select timeframe</option>
+              <option>1–7 days</option>
+              <option>8–15 days</option>
+              <option>16 days – 1 month</option>
+              <option>Custom timeframe</option>
+            </select>
+            <p class="error-msg" aria-live="polite"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="file">Upload brief (optional)</label>
+            <input id="file" name="file" type="file" />
+          </div>
+
+          <div class="form-field">
+            <label for="has_account">Do you already have an Easy Biz Deal account? <span aria-hidden="true">*</span></label>
+            <select id="has_account" name="has_account" required>
+              <option value="" selected disabled>Select</option>
+              <option>Yes</option>
+              <option>No – I’m new here</option>
+            </select>
+            <p class="error-msg" aria-live="polite"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="communication">Preferred communication <span aria-hidden="true">*</span></label>
+            <select id="communication" name="communication" required>
+              <option value="" selected disabled>Select</option>
+              <option>Email</option>
+              <option>WhatsApp</option>
+              <option>Virtual meeting</option>
+            </select>
+            <p class="error-msg" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn--tertiary form-prev" data-goto="1">Back</button>
+          <button type="submit" class="btn btn--primary">Submit</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
+{% endblock %}
+
+{# ---------------------------------------------------- #}
+{#  EXTRA SCRIPTS                                       #}
+{# ---------------------------------------------------- #}
+{% block extra_js %}
+<script src="{% static 'js/hire-form.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,144 @@
+/* profile.css – Clean and responsive profile page */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.profile-form input,
+.profile-form select,
+.profile-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #f9fafb;
+}
+
+.profile-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.save-btn,
+.profile-actions button {
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.save-btn:hover,
+.profile-actions button:hover {
+  background-color: #1e40af;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup.show {
+  display: flex;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.popup-content h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #1f2937;
+}
+
+.popup-content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+.popup-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.popup-buttons button {
+  padding: 8px 16px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.popup-buttons button:hover {
+  background: #1e3a8a;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .popup-content {
+    padding: 20px;
+  }
+}

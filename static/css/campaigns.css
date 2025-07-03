@@ -1,0 +1,46 @@
+.campaign-home {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.campaign-home h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #1e293b;
+}
+
+.campaign-options {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.campaign-card {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  width: 280px;
+  padding: 30px;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  color: #0f172a;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+
+.campaign-card:hover {
+  transform: translateY(-5px);
+  border-color: #38bdf8;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+.campaign-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.campaign-card p {
+  font-size: 14px;
+  color: #64748b;
+}

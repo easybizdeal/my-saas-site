@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}Create LinkedIn Campaign | Easy Biz Deal{% endblock %}
+
+{% block css_file %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/create_campaign.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="create-campaign-container py-5 px-4">
+  <div class="campaign-header text-center mb-5">
+    <h1 class="display-5 fw-bold">📤 Create New LinkedIn Campaign</h1>
+    <p class="text-muted fs-5">Easily launch your personalized outreach with LinkedIn URLs and dynamic message tags.</p>
+  </div>
+
+  <form class="campaign-form shadow p-4 rounded bg-white" method="POST" action="/campaigns/linkedin/create" enctype="multipart/form-data" style="max-width: 720px; margin: 0 auto;">
+    <div class="mb-4">
+      <label for="campaignName" class="form-label fw-semibold">📛 Campaign Name</label>
+      <input type="text" id="campaignName" name="campaign_name" class="form-control form-control-lg" placeholder="e.g., July Outreach Campaign" required>
+    </div>
+
+    <div class="mb-4">
+      <label for="fileUpload" class="form-label fw-semibold">📁 Upload LinkedIn File (CSV/XLSX)</label>
+      <input type="file" id="fileUpload" name="file_upload" class="form-control" accept=".csv, .xlsx" required>
+      <div class="form-text mt-2 text-dark">
+        <strong>File must include columns:</strong><br>
+        <strong>A = LinkedIn URL, B = First Name, C = Title, D = Company Name</strong>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="messageTemplate" class="form-label fw-semibold">💬 Message Template</label>
+      <div class="d-flex gap-2 mb-2 flex-wrap">
+        <span class="fw-semibold text-secondary">Insert Tags:</span>
+        <button type="button" class="btn btn-outline-primary btn-sm rounded-pill" onclick="insertTag('{% raw %}{{First Name}}{% endraw %}')">First Name</button>
+        <button type="button" class="btn btn-outline-primary btn-sm rounded-pill" onclick="insertTag('{% raw %}{{Company Name}}{% endraw %}')">Company Name</button>
+        <button type="button" class="btn btn-outline-primary btn-sm rounded-pill" onclick="insertTag('{% raw %}{{Title}}{% endraw %}')">Title</button>
+      </div>
+      <textarea id="messageTemplate" name="message_template" rows="6" class="form-control" placeholder="Hi {% raw %}{{First Name}}{% endraw %}, I wanted to connect..." required></textarea>
+    </div>
+
+<div class="form-group mt-4">
+  <label for="daily_limit"><strong>📊 Daily Sending Limit</strong></label>
+  <input
+    type="number"
+    id="daily_limit"
+    name="daily_limit"
+    class="form-control"
+    placeholder="Enter how many messages to send per day (10–75)"
+    min="10"
+    max="75"
+    value="50"
+    required
+  />
+  <small class="form-text text-muted">
+    To avoid LinkedIn restrictions, we recommend sending 30–50 messages per day.
+    The system enforces a hard cap at 75. Going beyond may put your LinkedIn account at risk.
+  </small>
+</div>
+
+    <div class="d-grid">
+      <button type="submit" class="btn btn-success btn-lg rounded-pill">🚀 Save Campaign</button>
+    </div>
+  </form>
+</section>
+
+<script>
+  function insertTag(tag) {
+    const textarea = document.getElementById("messageTemplate");
+    const cursorPos = textarea.selectionStart;
+    const textBefore = textarea.value.substring(0, cursorPos);
+    const textAfter = textarea.value.substring(cursorPos);
+    textarea.value = textBefore + tag + textAfter;
+    textarea.focus();
+  }
+</script>
+{% endblock %}

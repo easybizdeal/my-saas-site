@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}My Tools Dashboard – Easy Biz Deal{% endblock %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/tools_dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+  {% include 'partials/sidebar.html' %}
+
+  <section class="main-content">
+    <h1 style="font-size: 2rem; color: #111827; margin-bottom: 30px; text-align: center;">Welcome to Your Tools Dashboard</h1>
+
+    <div class="tool-summary" style="margin-bottom: 40px; text-align: center;">
+      <p style="font-size: 1.1rem; color: #4b5563;">
+        Here you can manage all the tools you've activated. View reports, run tools, and monitor your usage in real-time.
+      </p>
+    </div>
+
+    {% if tools %}
+    <div class="active-tools" style="display: flex; flex-direction: column; gap: 40px;">
+      {% for tool in tools %}
+      <div class="tool-card" style="background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.06); padding: 25px;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #111827;">
+          {{ tool.tool_name.replace('_', ' ').title() }}
+        </h3>
+        <p style="font-size: 14px; color: #4b5563;">Status: <strong style="color: #10b981;">Active</strong></p>
+        <p style="font-size: 14px; color: #4b5563;">Package: <strong>{{ tool.package_name.title() }}</strong></p>
+        <p style="font-size: 14px; color: #4b5563;">Messages Sent Today: <strong>0</strong></p>
+        <p style="font-size: 14px; color: #4b5563;">Total Sent: <strong>0</strong></p>
+        <p style="font-size: 14px; color: #4b5563;">Remaining: <strong>0</strong></p>
+
+        <div class="tool-controls" style="margin-top: 20px; display: flex; gap: 10px;">
+          <form method="POST" action="/run-tool/{{ tool.tool_name|replace(' ', '-')|lower }}">
+            <button type="submit" style="padding: 10px 16px; background: #10b981; border: none; color: white; border-radius: 6px; cursor: pointer; flex: 1;">Run Tool</button>
+          </form>
+          <form method="POST" action="/stop-tool/{{ tool.tool_name|replace(' ', '-')|lower }}">
+            <button type="submit" style="padding: 10px 16px; background: #ef4444; border: none; color: white; border-radius: 6px; cursor: pointer; flex: 1;">Stop</button>
+          </form>
+        </div>
+
+        <div class="tool-report" style="margin-top: 25px; text-align: left;">
+          <h4 style="font-size: 1rem; color: #111827; margin-bottom: 10px;">Recent Activity</h4>
+          <ul style="font-size: 13px; color: #6b7280; line-height: 1.6;">
+            <li>No activity yet</li>
+          </ul>
+        </div>
+
+        <div class="tool-files" style="margin-top: 25px;">
+          <h4 style="font-size: 1rem; color: #111827; margin-bottom: 10px;">Uploaded Files</h4>
+          <form action="/tools-dashboard/upload-file" method="POST" enctype="multipart/form-data">
+            <input type="file" name="data_file" accept=".xlsx,.csv" style="padding: 10px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #d1d5db;">
+            <br>
+            <button type="submit" style="padding: 10px 20px; background: #3b82f6; color: white; border: none; border-radius: 6px; cursor: pointer;">Upload File</button>
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+      <div style="text-align: center; font-size: 1rem; color: #6b7280;">
+        <p>You haven't activated any tools yet. Go to <a href="/dashboard" style="color: #3b82f6;">Dashboard</a> to get started.</p>
+      </div>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}

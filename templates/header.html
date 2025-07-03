@@ -1,0 +1,37 @@
+<!-- templates/header.html -->
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+</head>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Easy Biz Deal">
+    </a>
+
+    <nav class="nav-menu" id="navMenu">
+      <a href="/">Home</a>
+      <a href="/#services">Hire Freelancer</a>
+      <a href="/#tools">Tools</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#contact">Contact</a>
+
+      {% if current_user.is_authenticated %}
+        <a href="/dashboard" class="dashboard-btn">Dashboard</a>
+        <a href="/logout" class="logout-btn">Logout</a>
+      {% else %}
+        <a href="/login" class="login-btn">Login</a>
+        <a href="/signup" class="signup-btn">Sign Up</a>
+      {% endif %}
+    </nav>
+
+    <button class="menu-toggle" onclick="toggleNav()">☰</button>
+  </div>
+</header>
+
+<script>
+  function toggleNav() {
+    const nav = document.getElementById("navMenu");
+    nav.classList.toggle("open");
+  }
+</script>

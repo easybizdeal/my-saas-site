@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard – Easy Biz Deal{% endblock %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block body_class %}dashboard-page{% endblock %}
+
+{% block content %}
+
+<div class="user-dashboard">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span>Easy Biz Deal</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="/dashboard" class="nav-item">🏠 <span>Dashboard</span></a>
+      <a href="/profile" class="nav-item">👤 <span>My Profile</span></a>
+      <a href="/my-files" class="nav-item">📁 <span>My Files</span></a>
+      <a href="/crm" class="nav-item">📋 <span>CRM</span></a>
+      <a href="/campaign_home" class="nav-item">📢 <span>Campaign</span></a>
+      <a href="/tools-dashboard" class="nav-item">🛠 <span>My Tools</span></a>
+      <a href="/logout" class="nav-item logout">🚪 <span>Logout</span></a>
+    </nav>
+  </aside>
+
+  <main class="dashboard-main">
+    <div class="welcome">
+      <h1>Hi {{ current_user.first_name }}, 👋</h1>
+      <p class="subtitle">Here’s everything you need to run your growth engine.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>LinkedIn Automation</h3>
+        <p>Send messages and collect leads hands-free.</p>
+        <a href="/tools/linkedin">Open Tool →</a>
+      </div>
+      <div class="card">
+        <h3>Email Campaigns</h3>
+        <p>Send sequences, track opens, and grow faster.</p>
+        <a href="/tools/email">Open Tool →</a>
+      </div>
+      <div class="card">
+        <h3>Google Maps Leads</h3>
+        <p>Extract business data from Google Maps searches.</p>
+        <a href="/tools/maps">Open Tool →</a>
+      </div>
+      <div class="card">
+        <h3>CRM Management</h3>
+        <p>Upload, organize, and manage all your contacts.</p>
+        <a href="{{ url_for('my_crm') }}">Go to CRM →</a>
+      </div>
+      <div class="card">
+        <h3>Create New Campaign</h3>
+        <p>Launch a new campaign using any tool + CRM list.</p>
+        <a href="/create-campaign">➕ Create Campaign</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Email Verification Reminder Popup -->
+{% if show_verify_popup and not current_user.is_verified %}
+<div class="email-popup-overlay">
+  <div class="email-popup-box">
+    <h3>📨 Verify Your Email</h3>
+    <p>We've sent a verification link to <strong>{{ current_user.email }}</strong>.</p>
+    <p>Please click the link in your inbox to unlock full dashboard access.</p>
+    <button onclick="document.querySelector('.email-popup-overlay').remove()">OK</button>
+  </div>
+</div>
+{% endif %}
+
+<!-- Verified Confirmation Popup -->
+{% if show_verified_popup %}
+<div class="email-popup-overlay">
+  <div class="email-popup-box">
+    <h3>✅ Email Verified</h3>
+    <p>Thanks for verifying your email! Your account is now fully active.</p>
+    <button onclick="document.querySelector('.email-popup-overlay').remove()">Go to Dashboard</button>
+  </div>
+</div>
+{% endif %}
+
+<style>
+.email-popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.email-popup-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  text-align: center;
+  max-width: 420px;
+}
+.email-popup-box h3 {
+  margin-bottom: 12px;
+  font-size: 24px;
+  color: #2e7df6;
+}
+.email-popup-box p {
+  font-size: 15px;
+  margin: 5px 0;
+}
+.email-popup-box button {
+  margin-top: 18px;
+  background: #2e7df6;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.email-popup-box button:hover {
+  background: #135cd2;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,53 @@
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f9fafb;
+}
+
+.checkout-container h1 {
+  font-size: 2.2rem;
+  color: #10b981;
+  margin-bottom: 20px;
+}
+
+.checkout-container p {
+  font-size: 1.1rem;
+  color: #374151;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+.checkout-container .action-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.checkout-container .action-buttons a {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.checkout-container .action-buttons .go-dashboard {
+  background: #3b82f6;
+  color: white;
+}
+
+.checkout-container .action-buttons .go-tools {
+  background: #10b981;
+  color: white;
+}
+
+.checkout-container .action-buttons a:hover {
+  opacity: 0.9;
+}

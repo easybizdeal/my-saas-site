@@ -1,0 +1,100 @@
+.linkedin-campaign-container {
+  max-width: 960px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.campaign-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.campaign-header h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #2e7df6;
+}
+
+.campaign-header p {
+  font-size: 16px;
+  color: #555;
+}
+
+.campaign-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#connect-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#statusMessage {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #2e7df6;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-outline {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  display: inline-block;
+  min-width: 200px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #2e7df6;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #1d5fd1;
+}
+
+.btn-secondary {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #c62828;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid #2e7df6;
+  color: #2e7df6;
+}
+
+.btn-outline:hover {
+  background-color: #2e7df6;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .linkedin-campaign-container {
+    padding: 25px;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    width: 100%;
+  }
+}

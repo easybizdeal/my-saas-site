@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 40px 0;
+    }
+    .email-wrapper {
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      background-color: #ffffff;
+    }
+    h2 {
+      color: #333333;
+    }
+    p {
+      font-size: 16px;
+      color: #555555;
+      line-height: 1.5;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #0066ff;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    .footer {
+      font-size: 12px;
+      color: #999999;
+      margin-top: 40px;
+      text-align: center;
+    }
+    a {
+      color: #0066ff;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <h2>Password Reset Request</h2>
+    <p>Hi {{ user.first_name }},</p>
+    <p>We received a request to reset your password for your Easy Biz Deal account.</p>
+    <p>Click the button below to create a new password:</p>
+
+    <a href="{{ reset_link }}" class="btn">Reset Your Password</a>
+
+    <p>If the button above doesn’t work, copy and paste this link into your browser:</p>
+    <p><a href="{{ reset_link }}">{{ reset_link }}</a></p>
+
+    <div class="footer">
+      <p>This email was sent by Easy Biz Deal</p>
+      <p>Need help? Contact <a href="mailto:support@easybizdeal.com">support@easybizdeal.com</a></p>
+    </div>
+  </div>
+</body>
+</html>

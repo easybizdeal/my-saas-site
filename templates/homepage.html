@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head_extra %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  {% endblock %}
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="keywords"
+        content="Easy Biz Deal, Business automation platform, Growth tools for startups, Smart business tools, Automate outreach, Lead management, LinkedIn automation, Email automation, Web scraping automation, Google Maps lead extractor, Email Finder AI, Traffic reports automation, One‑click signup, Tool selection dashboard, Lead upload & customization, Run & track campaigns, Real‑time analytics, Hire world‑class freelancers, Verified experts, Secure in‑app messaging, Fast delivery, Developer marketplace, Marketing freelancers, Virtual assistants, Data enrichment, Lead generation automation, Campaign analytics, CRM integration, Personalization, Drip campaigns, Funnel automation, Social media automation, Content scheduling, Growth hacking, Sales pipeline automation, A/B testing, Email list management, API integration, Task automation, Workflow optimization, No-code automation, Remote workforce management, Project collaboration, Talent sourcing, Performance tracking">
+  <meta name="description"
+        content="Easy Biz Deal is the all‑in‑one business automation platform: streamline LinkedIn, email, web and lead workflows, automate campaigns, and hire vetted freelancers instantly.">
+
+  <title>Easy Biz Deal – Run & Grow Your Business</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  {% include 'header.html' %}
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <h1 class="hero-title">Smart Tools to Grow Your Business</h1>
+    <p class="hero-subtitle">Automate outreach, manage leads, and boost efficiency with our ready-to-run tools and expert freelancers.</p>
+    <div class="hero-buttons">
+      <a href="/signup" class="btn btn-primary">Get Started Free</a>
+      <a href="hire" class="btn btn-outline">Hire Freelancer</a>
+    </div>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,0 C480,100 960,0 1440,100 L1440,00 L0,0 Z" fill="var(--color-bg)" />
+  </svg>
+</section>
+
+<!-- SECTION 2 -->
+<section class="tools-showcase">
+  <div class="container">
+    <h2 class="tools-showcase__title">Discover Our Powerful Automation Suite</h2>
+    <div class="tools-showcase__grid">
+      <article class="card">
+        <h3>LinkedIn Automation</h3>
+        <p>Automate LinkedIn outreach, connections, and follow-ups with intelligent sequences.</p>
+        <a href="/tools/linkedin" class="card__btn">Explore ↗</a>
+      </article>
+      <article class="card">
+        <h3>AI Assistants</h3>
+        <p>Chatbots that engage and support users 24/7 with personalized conversations.</p>
+        <a href="/tools/Conversational AI Assistants" class="card__btn">Explore ↗</a>
+      </article>
+      <article class="card">
+        <h3>Web Automation</h3>
+        <p>Scrape data, fill forms, and trigger actions across any website automatically.</p>
+        <a href="/tools/web" class="card__btn">Explore ↗</a>
+      </article>
+      <article class="card">
+        <h3>Email Tools</h3>
+        <p>Send automated, personalized emails that engage, convert, and track performance.</p>
+        <a href="/tools/maps" class="card__btn">Explore ↗</a>
+      </article>
+      <article class="card">
+        <h3>Email Finder AI</h3>
+        <p>Locate verified professional emails from names, domains, or profiles instantly.</p>
+        <a href="/tools/email-finder" class="card__btn">Explore ↗</a>
+      </article>
+      <article class="card">
+        <h3>Traffic Reports</h3>
+        <p>Analyze and automate weekly traffic reports to understand user behavior.</p>
+        <a href="/tools/web-traffic" class="card__btn">Explore ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section class="tools-steps-modern spaced-above">
+  <div class="container">
+    <h2 class="tools-steps-title">How Our Tools Work</h2>
+    <div class="tools-steps-grid">
+      <div class="tools-step">
+        <div class="tools-step-number">01</div>
+        <h3>Create Account</h3>
+        <p>Get started instantly with one-click signup. No credit card required.</p>
+      </div>
+      <div class="tools-step">
+        <div class="tools-step-number">02</div>
+        <h3>Select Tool</h3>
+        <p>Choose LinkedIn messaging, email automation, or scraping tools from your dashboard.</p>
+      </div>
+      <div class="tools-step">
+        <div class="tools-step-number">03</div>
+        <h3>Upload & Customize</h3>
+        <p>Upload your leads, add a message, and personalize everything to fit your workflow.</p>
+      </div>
+      <div class="tools-step">
+        <div class="tools-step-number">04</div>
+        <h3>Run & Track</h3>
+        <p>Click run. Let automation do the work while you track everything in real-time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="freelancer-hire">
+  <div class="container">
+    <!-- Text and Features -->
+    <div class="freelancer-hire__content">
+      <h2>Hire Our Experts in Minutes</h2>
+      <p>Tell us what you need — our team will review your requirements and respond within one hour with the right solution from our expert departments. Fast, reliable, and tailored to your project.</p>
+      <a href="/hire" class="btn btn-primary">Get Started</a>
+      <ul class="freelancer-hire__features">
+        <li>
+          <svg class="feature-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
+          <span>Verified Experts</span>
+        </li>
+        <li>
+          <svg class="feature-icon" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14l4-4h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg>
+          <span>Secure Chat</span>
+        </li>
+        <li>
+          <svg class="feature-icon" viewBox="0 0 24 24"><path d="M21 10H7l5-5L11 3l-8 8 8 8 1-1-5-5h14z"/></svg>
+          <span>Fast Delivery</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Avatar Showcase -->
+    <div class="freelancer-hire__visual">
+      <div class="avatars">
+        <img src="/static/images/Website Development Company.png" alt="Website Development Company" />
+        <img src="/static/images/Digital Marketing Agency.png" alt="Digital Marketing Agency" />
+        <img src="/static/images/Data Entry Services Online.png" alt="Data Entry Services Online" />
+        <img src="/static/images/Web Scraping Automation.png" alt="Web Scraping Automation" />
+        <span class="avatar-count">+30 Freelancers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ▸ MEET OUR TOP FREELANCERS
+–––––––––––––––––––––––––––––––––––––––––––––– -->
+<!-- SECTION 5 -->
+<section class="talent" id="top-freelancers">
+  <div class="container">
+    <h2 class="section-title">Meet Our Top Freelancers by Department</h2>
+
+    <ul class="talent__grid">
+      <!-- AI & Automation Services -->
+      <li class="dept">
+        <h3 class="dept__name text-blue">AI & Automation Services</h3>
+        <p class="dept__desc">Custom sites, WordPress, redesigns, and full‑stack builds tailored to your needs.</p>
+        <ul class="dept__bullets">
+          <li>Custom &amp; WordPress builds</li>
+          <li>AI chatbot development &amp; maintenance</li>
+          <li>Full‑stack expert developers</li>
+        </ul>
+        <figure class="dept__lead">
+          <img src="{{ url_for('static', filename='images/Amit C.jpg') }}" width="50" height="50" alt="Amit C, full‑stack developer" loading="lazy" />
+          <figcaption>
+            <strong>Amit Choudhury</strong><br />
+            <small>Full‑Stack Developer · 5 yrs</small>
+          </figcaption>
+        </figure>
+        <a class="btn btn--outline-blue dept__cta" href="/departments/web-development">View department</a>
+      </li>
+
+      <!-- Digital Marketing -->
+      <li class="dept">
+        <h3 class="dept__name text-yellow">Digital Marketing</h3>
+        <p class="dept__desc">From SEO to paid ads—everything your brand needs to grow online.</p>
+        <ul class="dept__bullets">
+          <li>SEO &amp; content strategy</li>
+          <li>Paid ads &amp; campaigns</li>
+          <li>Influencer &amp; social media</li>
+        </ul>
+        <figure class="dept__lead">
+          <img src="{{ url_for('static', filename='images/Habibur Rahman.jpg') }}" width="50" height="50" alt="Habibur Rahman, digital marketer" loading="lazy" />
+          <figcaption>
+            <strong>Habibur Rahman</strong><br />
+            <small>Digital Marketer · 4 yrs</small>
+          </figcaption>
+        </figure>
+        <a class="btn btn--outline-yellow dept__cta" href="/departments/digital-marketing">View department</a>
+      </li>
+
+      <!-- Website Development -->
+      <li class="dept">
+        <h3 class="dept__name text-blue">Website Development</h3>
+        <p class="dept__desc">Custom sites, WordPress, redesigns, and full‑stack builds tailored to your needs.</p>
+        <ul class="dept__bullets">
+          <li>Custom &amp; WordPress builds</li>
+          <li>Website redesign &amp; maintenance</li>
+          <li>Full‑stack expert developers</li>
+        </ul>
+        <figure class="dept__lead">
+          <img src="{{ url_for('static', filename='images/profile-placeholder.webp') }}" width="50" height="50" alt="John Doe, full‑stack developer" loading="lazy" />
+          <figcaption>
+            <strong>John Doe</strong><br />
+            <small>Full‑Stack Developer · 5 yrs</small>
+          </figcaption>
+        </figure>
+        <a class="btn btn--outline-blue dept__cta" href="/departments/web-development">View department</a>
+      </li>
+
+      <!-- Data Management -->
+      <li class="dept">
+        <h3 class="dept__name text-green">Data Management</h3>
+        <p class="dept__desc">Data entry, CRM support, and virtual assistance—handled with care.</p>
+        <ul class="dept__bullets">
+          <li>Virtual assistance &amp; CRM</li>
+          <li>File conversions &amp; reports</li>
+          <li>Manual workload handling</li>
+        </ul>
+        <figure class="dept__lead">
+          <img src="{{ url_for('static', filename='images/Khondoker Rukaiya Siddiqa.jpg') }}" width="50" height="50" alt="Khondoker Rukaiya Siddiqa, CRM Executive" loading="lazy" />
+          <figcaption>
+            <strong>Khondoker Rukaiya Siddiqa</strong><br />
+            <small>CRM Executive · 6 yrs</small>
+          </figcaption>
+        </figure>
+        <a class="btn btn--outline-green dept__cta" href="/departments/data-management">View department</a>
+      </li>
+
+      <!-- Creative & Design -->
+      <li class="dept">
+        <h3 class="dept__name text-gray">Creative &amp; Design</h3>
+        <p class="dept__desc">From branding to UI/UX—get high‑quality creatives from skilled designers.</p>
+        <ul class="dept__bullets">
+          <li>Logo &amp; visual identity</li>
+          <li>UI/UX design</li>
+          <li>Presentation &amp; print materials</li>
+        </ul>
+        <figure class="dept__lead">
+          <img src="{{ url_for('static', filename='images/Mohidul.jpg') }}" width="50" height="50" alt="Mohidul" loading="lazy" />
+          <figcaption>
+            <strong>Mohidul Islam Reyad</strong><br />
+            <small>UI/UX Designer · 4 yrs</small>
+          </figcaption>
+        </figure>
+        <a class="btn btn--outline-gray dept__cta" href="/departments/design">View department</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+<!-- Why Easy Biz Deal -->
+ <!-- SECTION 6 -->
+<section style="padding: 60px 20px;">
+  <div class="container" style="max-width: 1000px; margin: auto;">
+    <h2 style="text-align: center; font-size: 2rem; color: #111827; margin-bottom: 40px;">Why Easy Biz Deal?</h2>
+    <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; list-style: none; padding: 0;">
+      <li><strong>✅ Ready-to-use tools:</strong> No setup needed—start running immediately.</li>
+      <li><strong>⚡ Fast results:</strong> Automate daily tasks and boost outreach overnight.</li>
+      <li><strong>💼 Freelance support:</strong> Hire expert virtual assistants and developers anytime.</li>
+      <li><strong>📊 Smart dashboard:</strong> Track progress, view reports, and manage activity live.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CTA -->
+ <!-- SECTION 7 -->
+<section style="padding: 60px 20px; text-align: center; background: #d1def8; color: rgb(242, 152, 79);">
+  <h2 style="font-size: 2rem; margin-bottom: 20px;">Start Automating Today</h2>
+  <p style="font-size: 1.1rem; margin-bottom: 30px;">Join hundreds of professionals using Easy Biz Deal to scale smarter, not harder.</p>
+  <a href="/signup" style="padding: 12px 30px; background: #10b981; color: white; text-decoration: none; border-radius: 30px;">Create Your Free Account</a>
+</section>
+
+{% block footer %}
+  {% include 'footer.html' %}
+{% endblock %}

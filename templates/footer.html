@@ -1,0 +1,49 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-column brand-column">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Easy Biz Deal Logo" class="footer-logo">
+      <p>Easy Biz Deal is your all-in-one solution for automation, lead generation, and expert freelance support.</p>
+    </div>
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+{% endblock %}
+
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/tools">Our Tools</a></li>
+        <li><a href="/hire-freelancer">Hire Freelancer</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/terms">Terms & Conditions</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/easybizdeal" target="_blank" rel="noopener">
+          <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
+        </a>
+        <a href="https://www.youtube.com/channel/UCc7946mbedYkQZkhUi7ULug" target="_blank" rel="noopener">
+          <img src="{{ url_for('static', filename='icons/Youtube.png') }}" alt="YouTube">
+        </a>
+        <a href="https://www.linkedin.com/company/easybizdeal/posts/?feedView=all" target="_blank" rel="noopener">
+          <img src="{{ url_for('static', filename='icons/linkedin.png') }}" alt="LinkedIn">
+        </a>
+      </div>
+    </div>    
+
+  <div class="footer-bottom">
+    <p>&copy; {{ current_year }} Easy Biz Deal. All rights reserved.</p>
+  </div>
+</footer>

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}My CRM – Easy Biz Deal{% endblock %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/crm.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container py-4 crm-container">
+  <h2 class="mb-4">📁 Upload a Contact File</h2>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="alert alert-info">
+        {% for msg in messages %}
+          <div>{{ msg }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <!-- Upload Form -->
+  <div class="card shadow-sm p-4 mb-4">
+    <form method="POST" action="{{ url_for('my_crm') }}" enctype="multipart/form-data">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Folder Name</label>
+          <input type="text" name="folder" class="form-control" placeholder="e.g. January-Leads" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Upload File</label>
+          <input type="file" name="file" class="form-control" accept=".csv, .xlsx" required>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-success w-100">📤 Upload</button>
+        </div>
+      </div>
+    </form>
+    <p class="text-muted mt-3">
+  ✅ Only CSV or Excel files are supported.<br>
+  ✅ Column A = Email, Column B = First Name, Column C = LinkedIn Profile URL<br>
+  📁 Use folders to group your uploads for better organization.
+</p>
+  </div>
+
+  <!-- Folders and Files -->
+  {% if folders %}
+    <h3 class="mb-3">📂 Your Uploaded Folders</h3>
+    <div class="row folder-list gy-4">
+      {% for folder in folders %}
+        <div class="col-12">
+          <div class="card shadow-sm p-3">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5 class="mb-0">{{ folder.name }}</h5>
+              <a href="{{ url_for('delete_crm_folder', folder=folder.name | urlencode) }}"
+                 class="btn btn-sm btn-danger"
+                 onclick="return confirm('Are you sure you want to delete this folder and all its files?')">
+                 🗑️ Delete Folder
+              </a>
+            </div>
+
+            <ul class="list-group list-group-flush">
+              {% for file in folder.files %}
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                  <span>{{ file }}</span>
+                  <div class="btn-group btn-group-sm" role="group">
+                    <a href="{{ url_for('view_crm_file') }}?folder={{ folder.name | urlencode }}&file={{ file | urlencode }}" class="btn btn-outline-primary">🔍 View</a>
+                    <a href="{{ url_for('crm_mapping') }}?folder={{ folder.name | urlencode }}&file={{ file | urlencode }}" class="btn btn-outline-success">🧠 Map</a>
+                    <a href="{{ url_for('download_crm_file') }}?folder={{ folder.name | urlencode }}&file={{ file | urlencode }}" class="btn btn-outline-secondary">⬇️ Download</a>
+                    <a href="{{ url_for('delete_crm_file') }}?folder={{ folder.name | urlencode }}&file={{ file | urlencode }}"
+                       class="btn btn-outline-danger"
+                       onclick="return confirm('Are you sure you want to delete this file?')">🗑️ Delete</a>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

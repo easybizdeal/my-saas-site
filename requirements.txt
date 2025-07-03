@@ -5,3 +5,4 @@ Flask-SQLAlchemy
 Flask-Login
 oauthlib
 gunicorn
+Flask-Mail
